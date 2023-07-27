@@ -37,9 +37,6 @@ public class Events {
     @Column(name = "end_date")
     public Date enDate;
 
-    // @Column(name = "creation_date")
-    // public Timestamp creationDate;
-
     @Column(name="creation_date")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime creationDate;
