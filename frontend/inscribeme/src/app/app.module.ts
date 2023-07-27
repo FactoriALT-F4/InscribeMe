@@ -29,6 +29,8 @@ import { LogoutComponent } from './events/logout/logout.component';
 import { ButtonloginComponent } from './login/components/buttonlogin/buttonlogin.component';
 import { UserloggedComponent } from './login/components/userlogged/userlogged.component';
 import { DictionaryComponent } from './events/dictionary/dictionary.component';
+import { LoginformComponent } from './events/loginform/loginform.component';
+import { RegisterformComponent } from './events/registerform/registerform.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { DictionaryComponent } from './events/dictionary/dictionary.component';
     LogoutComponent,
     ButtonloginComponent,
     UserloggedComponent,
-    DictionaryComponent
+    DictionaryComponent,
+    LoginformComponent,
+    RegisterformComponent
   ],
   imports: [
     BrowserModule,
