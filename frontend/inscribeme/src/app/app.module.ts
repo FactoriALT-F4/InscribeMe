@@ -10,7 +10,6 @@ import { DetailsComponent } from './views/details/details.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { SliderComponent } from './events/slider/slider.component';
 import { PaginationComponent } from './events/pagination/pagination.component';
-import { ListComponent } from './events/list/list.component';
 import { FavoritesComponent } from './events/favorites/favorites.component';
 import { JoinComponent } from './events/join/join.component';
 import { LoginComponent } from './login/views/login/login.component';
@@ -42,7 +41,6 @@ import { RegisterformComponent } from './events/registerform/registerform.compon
     ProfileComponent,
     SliderComponent,
     PaginationComponent,
-    ListComponent,
     FavoritesComponent,
     JoinComponent,
     LoginComponent,
