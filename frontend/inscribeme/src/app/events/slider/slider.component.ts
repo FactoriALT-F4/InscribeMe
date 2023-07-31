@@ -8,13 +8,22 @@ import { Events } from 'src/app/events/models/events.model';
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent implements OnInit {
-  Events: Events[] = [];
+  
+  eventsData: Events[] = [];
+
   constructor(private eventsService: EventsService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.fetchEventsData();
+  }
+
+  fetchEventsData() {
     this.eventsService.getEvents().subscribe(
       (data: Events[]) => {
-        this.Events = data;
+        this.eventsData = data;
+      },
+      (error) => {
+        console.log('Error fetching events data: ', error);
       }
     );
   }
