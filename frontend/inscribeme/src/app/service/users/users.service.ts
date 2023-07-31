@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Events } from '../events/models/events.model'
+import { Users } from 'src/app/events/models/users.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EventsService {
+export class UsersService {
 
   constructor() { }
 }
