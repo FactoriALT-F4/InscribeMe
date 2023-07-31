@@ -8,13 +8,13 @@ import { Events } from 'src/app/events/models/events.model';
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent implements OnInit {
-  sliderData: Events[] = [];
+  Events: Events[] = [];
   constructor(private eventsService: EventsService) { }
 
   ngOnInit(): void {
-    this.eventsService.getSliderData().subscribe(
+    this.eventsService.getEvents().subscribe(
       (data: Events[]) => {
-        this.sliderData = data;
+        this.Events = data;
       }
     );
   }
