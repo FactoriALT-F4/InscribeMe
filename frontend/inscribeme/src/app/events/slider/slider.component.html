@@ -1,10 +1,10 @@
 <div id="carouselExampleCaptions" class="carousel slide">
   <div class="carousel-indicators">
-    <button *ngFor="let item of sliderData; let i = index" type="button" [attr.data-bs-target]="'#carouselExampleCaptions'" [attr.data-bs-slide-to]="i" [class.active]="i === 0" [attr.aria-label]="'Slide ' + (i + 1)"></button>
+    <button *ngFor="let item of Events; let i = index" type="button" [attr.data-bs-target]="'#carouselExampleCaptions'" [attr.data-bs-slide-to]="i" [class.active]="i === 0" [attr.aria-label]="'Slide ' + (i + 1)"></button>
   </div>
   <div class="carousel-inner">
-    <div *ngFor="let item of sliderData; let i = index" class="carousel-item" [class.active]="i === 0">
-      <img [src]="item.imageUrl" class="d-block w-100 carousel-image" [alt]="'Slide ' + (i + 1)">
+    <div *ngFor="let item of Events; let i = index" class="carousel-item" [class.active]="i === 0">
+      <img [src]="item.imgUrl" class="d-block w-100 carousel-image" [alt]="'Slide ' + (i + 1)">
       <div class="carousel-caption d-none d-md-block">
         <h5>{{ item.name }}</h5>
         <p>{{ item.description }}</p>
@@ -20,4 +20,3 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-
