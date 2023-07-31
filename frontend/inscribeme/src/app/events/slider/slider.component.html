@@ -4,7 +4,7 @@
   </div>
   <div class="carousel-inner">
     <div *ngFor="let item of sliderData; let i = index" class="carousel-item" [class.active]="i === 0">
-      <img [src]="item.imageUrl" class="d-block w-100 carousel-image" [alt]="'Slide ' + (i + 1)">
+      <img [src]="item.imgUrl" class="d-block w-100 carousel-image" [alt]="'Slide ' + (i + 1)">
       <div class="carousel-caption d-none d-md-block">
         <h5>{{ item.name }}</h5>
         <p>{{ item.description }}</p>
@@ -20,4 +20,3 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-
