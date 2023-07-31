@@ -30,6 +30,6 @@ public class ProfileEvents {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="events_id")
     @JsonIgnore
-    public Events event;
+    public Event event;
 
 }
