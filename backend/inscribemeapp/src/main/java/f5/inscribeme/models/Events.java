@@ -1,11 +1,8 @@
 package f5.inscribeme.models;
 
 import java.sql.Date;
-// import java.sql.Timestamp;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -37,12 +34,8 @@ public class Events {
     @Column(name = "end_date")
     public Date enDate;
 
-    // @Column(name = "creation_date")
-    // public Timestamp creationDate;
-
-    @Column(name="creation_date")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
-    private LocalDateTime creationDate;
+    @Column(name="creation_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Timestamp creationDate;
 
     @Column(name = "max_people")
     public Long maxPeople;
