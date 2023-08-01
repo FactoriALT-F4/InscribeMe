@@ -3,15 +3,10 @@ package f5.inscribeme.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Table(name="profile_events")
@@ -27,9 +22,9 @@ public class ProfileEvents {
     @JsonIgnore
     public Profile profileEve;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name="events_id")
     @JsonIgnore
-    public Events event;
+   private List<Events> events;
 
 }

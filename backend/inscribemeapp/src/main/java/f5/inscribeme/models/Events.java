@@ -7,18 +7,14 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "events")
 @Data
+@NoArgsConstructor
 public class Events {
 
     @Id
@@ -28,21 +24,24 @@ public class Events {
     @Column(name = "name")
     public String name;
 
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "VARCHAR(3000)")
     public String description;
 
     @Column(name = "starting_date")
-    public Date startingDate;
+    public LocalDateTime startingDate;
 
     @Column(name = "end_date")
-    public Date enDate;
+    public LocalDateTime enDate;
 
-    // @Column(name = "creation_date")
-    // public Timestamp creationDate;
-
-    @Column(name="creation_date")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    @Column(name = "creation_date")
     private LocalDateTime creationDate;
+
+   /* @Column(name="creation_date")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    private LocalDateTime creationDate; */
+
+    @Column(name = "ins_people")
+    public Long insPeople;
 
     @Column(name = "max_people")
     public Long maxPeople;
@@ -50,8 +49,98 @@ public class Events {
     @Column(name = "imgUrl")
     public String imgUrl;
 
-    @OneToMany(mappedBy="event")
-    public List<ProfileEvents> profileEvent;
-    
+    @ManyToOne
+    @JoinColumn(name = "events_id")
+    private ProfileEvents profileEvents;
 
+    public Events(String name, String description, LocalDateTime startingDate, LocalDateTime endDate, LocalDateTime creationDate, long insPeople, long maxPeople, String imgUrl) {
+        this.name = name;
+        this.description = description;
+        this.startingDate = startingDate;
+        this.enDate = endDate;
+        this.creationDate = creationDate;
+        this.insPeople = insPeople;
+        this.maxPeople = maxPeople;
+        this.imgUrl = imgUrl;
+    }
+
+    public Long getIdevents() {
+        return idevents;
+    }
+
+    public void setIdevents(Long idevents) {
+        this.idevents = idevents;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LocalDateTime getStartingDate() {
+        return startingDate;
+    }
+
+    public void setStartingDate(LocalDateTime startingDate) {
+        this.startingDate = startingDate;
+    }
+
+    public LocalDateTime getEnDate() {
+        return enDate;
+    }
+
+    public void setEnDate(LocalDateTime enDate) {
+        this.enDate = enDate;
+    }
+
+    public LocalDateTime getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public Long getInsPeople() {
+        return insPeople;
+    }
+
+    public void setInsPeople(Long insPeople) {
+        this.insPeople = insPeople;
+    }
+
+    public Long getMaxPeople() {
+        return maxPeople;
+    }
+
+    public void setMaxPeople(Long maxPeople) {
+        this.maxPeople = maxPeople;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public ProfileEvents getProfileEvents() {
+        return profileEvents;
+    }
+
+    public void setProfileEvents(ProfileEvents profileEvents) {
+        this.profileEvents = profileEvents;
+    }
 }
