@@ -3,8 +3,6 @@ package f5.inscribeme.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import f5.inscribeme.models.Events;
-
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -22,7 +20,7 @@ public class ProfileEvents {
     @JsonIgnore
     public Profile profileEve;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="events_id")
     @JsonIgnore
     public Events event;
