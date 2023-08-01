@@ -1,20 +1,15 @@
 package f5.inscribeme.models;
 
-import java.sql.Date;
-// import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "events")
-@Data
 @NoArgsConstructor
+
 public class Events {
 
     @Id

@@ -3,10 +3,10 @@ package f5.inscribeme.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import f5.inscribeme.models.Events;
+
 import jakarta.persistence.*;
 import lombok.Data;
-
-import java.util.List;
 
 @Entity
 @Table(name="profile_events")
@@ -25,6 +25,6 @@ public class ProfileEvents {
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name="events_id")
     @JsonIgnore
-   private List<Events> events;
+    public Events event;
 
 }
