@@ -3,7 +3,6 @@ package f5.inscribeme.services;
 import f5.inscribeme.models.Events;
 import f5.inscribeme.repositories.EventsRepo;
 import jakarta.annotation.PostConstruct;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -17,7 +16,6 @@ public class EventsService {
 
     private final EventsRepo eventsRepo;
 
-    @Autowired
     public EventsService(EventsRepo eventsRepository) {
         this.eventsRepo = eventsRepository;
     }
