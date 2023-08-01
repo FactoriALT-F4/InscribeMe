@@ -1,7 +1,7 @@
 package f5.inscribeme.models;
 
 import java.time.LocalDateTime;
-
+import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
@@ -44,9 +44,8 @@ public class Events {
     @Column(name = "imgUrl")
     public String imgUrl;
 
-    @ManyToOne
-    @JoinColumn(name = "events_id")
-    private ProfileEvents profileEvents;
+    @OneToMany(mappedBy = "event")
+    private List<ProfileEvents> profileEvents;
 
     public Events(String name, String description, LocalDateTime startingDate, LocalDateTime endDate, LocalDateTime creationDate, long insPeople, long maxPeople, String imgUrl) {
         this.name = name;
@@ -131,11 +130,11 @@ public class Events {
         this.imgUrl = imgUrl;
     }
 
-    public ProfileEvents getProfileEvents() {
+    public List<ProfileEvents> getProfileEvents() {
         return profileEvents;
     }
 
-    public void setProfileEvents(ProfileEvents profileEvents) {
+    public void setProfileEvents(List<ProfileEvents> profileEvents) {
         this.profileEvents = profileEvents;
     }
 }
