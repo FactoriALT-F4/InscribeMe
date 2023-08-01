@@ -19,6 +19,10 @@ public class UserTypeService {
         return repo.findAll();
     }
 
+    public UserType show(Long id) throws Throwable{
+        return repo.findById(id).orElseThrow(()-> new Throwable("User Type not found"));
+    }
+
     public UserType getUserTypeById(Long id){
         Optional<UserType> opt = repo.findById(id);
         if(opt.isPresent()){
