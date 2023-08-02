@@ -1,0 +1,44 @@
+.container {
+  text-align: center;
+}
+
+.image-frame {
+  width: 245px;
+  height: 200px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.title {
+  /* Estilos del título aquí */
+}
+
+.description {
+  /* Estilos de la descripción aquí */
+}
+
+.button {
+  /* Estilos del botón aquí */
+}
+
+.attendance {
+  /* Estilos del sistema de aforo aquí */
+}
+
+.current-attendance {
+  font-weight: bold;
+}
+
+.max-attendance {
+  font-style: italic;
+}
+
+.date {
+  /* Estilos de la fecha aquí */
+}
