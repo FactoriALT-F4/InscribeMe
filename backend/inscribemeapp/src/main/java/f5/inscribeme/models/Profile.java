@@ -32,4 +32,43 @@ public class Profile {
     @OneToMany(mappedBy = "profileEve")
     public List<ProfileEvents> profileEvents;
 
+    public Long getIdprofile() {
+        return idprofile;
+    }
+
+    public void setIdprofile(Long idprofile) {
+        this.idprofile = idprofile;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<ProfileEvents> getProfileEvents() {
+        return profileEvents;
+    }
+
+    public void setProfileEvents(List<ProfileEvents> profileEvents) {
+        this.profileEvents = profileEvents;
+    }
 }
