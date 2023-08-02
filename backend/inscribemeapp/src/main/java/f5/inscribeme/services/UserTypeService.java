@@ -3,6 +3,7 @@ package f5.inscribeme.services;
 import java.util.List;
 import java.util.Optional;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,17 @@ public class UserTypeService {
         }else{
             return null;
         }
+    }
+
+    @PostConstruct
+    public void insertInitialUserTypes() {
+        UserType userTypeUser = new UserType();
+        userTypeUser.setType("user");
+        repo.save(userTypeUser);
+
+        UserType userTypeAdmin = new UserType();
+        userTypeAdmin.setType("admin");
+        repo.save(userTypeAdmin);
     }
 
 
