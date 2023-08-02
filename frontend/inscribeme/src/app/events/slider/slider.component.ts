@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventsService } from 'src/app/service/events/events.service';
+import { Events } from 'src/app/events/models/events.model';
 
 @Component({
   selector: 'app-slider',
@@ -7,14 +8,22 @@ import { EventsService } from 'src/app/service/events/events.service';
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent implements OnInit {
-  sliderData: any[] = [];
+  
+  eventsData: Events[] = [];
 
   constructor(private eventsService: EventsService) { }
 
-  ngOnInit(): void {
-    this.eventsService.getSliderData().subscribe(
-      (data: any) => {
-        this.sliderData = data;
+  ngOnInit() {
+    this.fetchEventsData();
+  }
+
+  fetchEventsData() {
+    this.eventsService.getEvents().subscribe(
+      (data: Events[]) => {
+        this.eventsData = data;
+      },
+      (error) => {
+        console.log('Error fetching events data: ', error);
       }
     );
   }

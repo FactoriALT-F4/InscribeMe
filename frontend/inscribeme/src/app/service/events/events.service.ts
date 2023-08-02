@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Events } from 'src/app/events/models/events.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Events } from '../../events/models/events.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,8 @@ export class EventsService {
 
   constructor(private http: HttpClient) { }
 
-  getSliderData(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  getEvents(): Observable<Events[]> {
+    return this.http.get<Events[]>(this.apiUrl);
   }
 }
+
