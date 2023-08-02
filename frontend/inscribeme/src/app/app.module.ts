@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +30,7 @@ import { UserloggedComponent } from './login/components/userlogged/userlogged.co
 import { DictionaryComponent } from './events/dictionary/dictionary.component';
 import { LoginformComponent } from './events/loginform/loginform.component';
 import { RegisterformComponent } from './events/registerform/registerform.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
