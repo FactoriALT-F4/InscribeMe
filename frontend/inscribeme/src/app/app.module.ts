@@ -30,6 +30,7 @@ import { UserloggedComponent } from './login/components/userlogged/userlogged.co
 import { DictionaryComponent } from './events/dictionary/dictionary.component';
 import { LoginformComponent } from './events/loginform/loginform.component';
 import { RegisterformComponent } from './events/registerform/registerform.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { RegisterformComponent } from './events/registerform/registerform.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
