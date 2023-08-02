@@ -5,13 +5,12 @@
       </div>
       <div class="col-md-8">
         <div class="card-body">
-            <p class="card-text">Date {{ event.starting_date }}</p>
+            <p class="card-text">Date {{ event.startingDate }}</p>
             <p class="card-title">Name {{ event.name }}</p>
             <p class="card-text">Desription {{ event.description }}</p>
-            <p class="card-text">Inscritos {{ event.ins_people }}</p>
+            <p class="card-text">Inscritos {{ event.insPeople }}</p>
             <button (click)="goToDetailsPage(event.id)" class="btn btn-primary">More</button>
         </div>
       </div>
     </div>
 </div>
-  

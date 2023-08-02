@@ -1,13 +1,14 @@
-<div class="container">
-  <h1 class="title">Título del evento</h1>
-  <p class="date">Fecha del evento</p>
+<app-header></app-header>
+<div class="container" *ngFor="let event of eventsData">
+  <h1 class="title">{{ event.name }}</h1>
+  <p class="date">{{ event.startingDate }}</p>
   <div class="image-frame">
-    <img class="image" src="ruta/a/la/imagen.jpg" alt="Imagen del evento">
+    <img [src]="'../assets' + event.imgUrl">
   </div>
   <div class="attendance">
-    <p>Aforo actual: <span class="current-attendance">{{ currentAttendance }} / {{ maxAttendance }}</span></p>
+    <p>Aforo actual: {{ event.insPeople }}/{{ event.maxPeople }}</p>
   </div>
-  <p class="description">Descripción del evento</p>
+  <p class="description">{{ event.description }}</p>
   <button class="button">Botón</button>
 </div>
-
+<app-footer></app-footer>
