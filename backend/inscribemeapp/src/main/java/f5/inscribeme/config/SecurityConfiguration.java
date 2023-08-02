@@ -24,6 +24,14 @@ public class SecurityConfiguration {
 
     JpaUserDetailsService jpaUserDetailsService;
 
+    
+
+    public SecurityConfiguration(JpaUserDetailsService jpaUserDetailsService) {
+        this.jpaUserDetailsService = jpaUserDetailsService;
+    }
+
+
+
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
