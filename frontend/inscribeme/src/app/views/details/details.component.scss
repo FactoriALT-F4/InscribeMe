@@ -15,30 +15,17 @@
   object-fit: cover;
 }
 
-.title {
-  /* Estilos del título aquí */
-}
-
-.description {
-  /* Estilos de la descripción aquí */
-}
 
 .button {
-  /* Estilos del botón aquí */
+  background-color: #20c997;
+  color: white;
+  font-style: bold;
+  border-color: white;
+  border-radius: 5px;
 }
 
 .attendance {
-  /* Estilos del sistema de aforo aquí */
+
 }
 
-.current-attendance {
-  font-weight: bold;
-}
 
-.max-attendance {
-  font-style: italic;
-}
-
-.date {
-  /* Estilos de la fecha aquí */
-}
