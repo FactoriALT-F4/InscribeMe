@@ -1,16 +1,14 @@
 <div class="card mb-3" *ngFor="let event of eventsData" style="max-width: 540px;">
     <div class="row g-0">
-      <div class="col-md-4">
-        <img [src]="'../assets' + event.imgUrl" class="img-fluid rounded-start" alt="Event Image">
-      </div>
-      <div class="col-md-8">
+      <div class="col-4">
+        <img [src]="'../assets' + event.imgUrl" class="img-fluid rounded-start" alt="Event Image">      </div>
+      <div class="col-8">
         <div class="card-body">
             <p class="card-text">{{ event.startingDate }}</p>
             <p class="card-title">{{ event.name }}</p>
             <p class="card-text">{{ event.description }}</p>
-            <p class="card-text">{{ event.insPeople }}/{{ event.maxPeople }} inscritos</p>
-            <button (click)="goToDetailsPage(event.id)" class="btn btn-primary">More</button>
-        </div>
+            <p class="card-text">{{ event.insPeople }}/{{ event.maxPeople }} inscritos<button routerLink="'/details/'{{event.id}}" class="btn btn-primary">More</button></p>
+          </div>
       </div>
     </div>
 </div>

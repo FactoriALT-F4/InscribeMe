@@ -28,8 +28,4 @@ export class HomecardsComponent implements OnInit {
       }
     );
   }
-
-  goToDetailsPage(eventId: number) {
-    this.router.navigate(['/details', eventId]);
-  }
 }

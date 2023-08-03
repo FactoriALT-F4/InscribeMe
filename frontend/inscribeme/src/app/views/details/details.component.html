@@ -1,14 +1,3 @@
 <app-header></app-header>
-<div class="container" *ngFor="let event of eventsData">
-  <h1 class="title">{{ event.name }}</h1>
-  <p class="date">{{ event.startingDate }}</p>
-  <div class="image-frame">
-    <img [src]="'../assets' + event.imgUrl">
-  </div>
-  <div class="attendance">
-    <p>Aforo actual: {{ event.insPeople }}/{{ event.maxPeople }}</p>
-  </div>
-  <p class="description">{{ event.description }}</p>
-  <button class="button">Join</button>
-</div>
+<app-detailscards></app-detailscards>
 <app-footer></app-footer>
