@@ -5,9 +5,9 @@
   <div class="carousel-inner">
     <div *ngFor="let event of eventsData; let i = index" class="carousel-item" [class.active]="i === 0">
       <img [src]="'../assets' + event.imgUrl" class="d-block w-100 carousel-image" [alt]="'Slide ' + (i + 1)">
-      <div class="carousel-caption">
-        <h5>{{ event.name }}</h5>
-        <p>{{ event.description }}</p>
+      <div class="carousel-caption" id="carousel-text">
+        <h2>{{ event.name }}</h2>
+        <!-- <p>{{ event.description }}</p> -->
       </div>
     </div>
   </div>
