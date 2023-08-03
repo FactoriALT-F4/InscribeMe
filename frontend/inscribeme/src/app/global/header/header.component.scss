@@ -1,0 +1,30 @@
+#nav-header {
+   background-color: #61E8A7 ;
+   display: flex;
+   align-items: center;
+   width: 100%;
+}
+
+.logo {
+display: flex;
+flex-direction: column;
+justify-content: center;
+color: white;
+}    
+
+#logo {
+    border-radius: 50%;
+    min-width: 100px;
+    min-height: 100px;
+} 
+
+#logouser {
+    max-width: 50px;
+    border-radius: 50%;
+    align-items:center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
