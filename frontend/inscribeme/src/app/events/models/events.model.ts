@@ -1,5 +1,5 @@
 export interface Events {
-    id: number;
+    idevents: number;
     name: string;
     description: string;
     imgUrl: string;
