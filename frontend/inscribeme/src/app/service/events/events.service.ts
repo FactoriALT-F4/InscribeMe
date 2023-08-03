@@ -8,7 +8,7 @@ import { Events } from '../../events/models/events.model';
 })
 export class EventsService {
 
-  private apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+  private apiUrl = 'http://localhost:4000/events';
 
   constructor(private http: HttpClient) { }
 
