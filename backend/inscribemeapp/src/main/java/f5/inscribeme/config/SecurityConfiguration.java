@@ -43,7 +43,7 @@ public class SecurityConfiguration {
                         .logoutUrl("/logout")
                         .deleteCookies("JSESSIONID"))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/events", "/users/register").permitAll())
+                        .requestMatchers("/events", "/events/**", "/users/register").permitAll())
                 .userDetailsService(jpaUserDetailsService)
                 .httpBasic(withDefaults())
                 .sessionManagement(session -> session
