@@ -8,12 +8,17 @@ import { Events } from '../../events/models/events.model';
 })
 export class EventsService {
 
-  private apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+  private apiUrl = 'http://localhost:4000/events';
 
   constructor(private http: HttpClient) { }
 
   getEvents(): Observable<Events[]> {
     return this.http.get<Events[]>(this.apiUrl);
+  }
+
+  getEvent(eventId: string): Observable<Events> {
+    const url = `${this.apiUrl}/${eventId}`; 
+    return this.http.get<Events>(url);
   }
 }
 
