@@ -1,0 +1,3 @@
+<button (click)="toggleFavorite(event)" class="btn btn-outline-secondary">
+    <i [ngClass]="{'bi-heart-fill text-danger': isEventFavorite(event), 'bi-heart': !isEventFavorite(event)}"></i>
+</button>
