@@ -7,20 +7,18 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class SecurityUser implements UserDetails{
+public class SecurityUser implements UserDetails {
 
     User user;
-    
 
     public SecurityUser(User user) {
         this.user = user;
     }
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-        for(UserType usType : user.getUserTypes()){
+        for (UserType usType : user.getUserTypes()) {
             SimpleGrantedAuthority auth = new SimpleGrantedAuthority(usType.getType());
             authorities.add(auth);
         }
@@ -39,12 +37,12 @@ public class SecurityUser implements UserDetails{
 
     @Override
     public boolean isAccountNonExpired() {
-       return true;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-       return true;
+        return true;
     }
 
     @Override
@@ -56,5 +54,5 @@ public class SecurityUser implements UserDetails{
     public boolean isEnabled() {
         return true;
     }
-    
+
 }

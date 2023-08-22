@@ -15,15 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/")
 public class AuthController {
-    
 
     @GetMapping("/login")
-    public ResponseEntity<Map<String, String>> login(){
-        
+    public ResponseEntity<Map<String, String>> login() {
+
         SecurityContext contextHolder = SecurityContextHolder.getContext();
         Authentication auth = contextHolder.getAuthentication();
 
-        Map<String,String> json = new HashMap<>();
+        Map<String, String> json = new HashMap<>();
         json.put("message", "Logged");
         json.put("username", auth.getName());
         json.put("types", auth.getAuthorities().iterator().next().toString());
@@ -31,6 +30,5 @@ public class AuthController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(json);
 
     }
-
 
 }
