@@ -75,7 +75,7 @@ public class SecurityConfiguration {
 
         UserDetails user = User.builder()
                 .username("user")
-                .password("{bcrypt}$2a$12$8LegtLQWe717tIPvZeivjuqKnaAs5.bm0Q05.5GrAmcKzXw2NjoUO")
+                .password("1234")
                 .roles("USER")
                 .build();
 
