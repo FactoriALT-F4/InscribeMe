@@ -18,6 +18,7 @@ import { UserdetailsComponent } from './components/userdetails/userdetails.compo
 import { HomeComponent } from './views/home/home.component';
 import { DetailsComponent } from './views/details/details.component';
 import { EventsRoutingModule } from './events-routing.module';
+import { ProfileComponent } from './views/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { EventsRoutingModule } from './events-routing.module';
     SliderComponent,
     UserdetailsComponent,
     HomeComponent,
-    DetailsComponent
+    DetailsComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
