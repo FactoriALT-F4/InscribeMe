@@ -2,8 +2,6 @@ package f5.inscribeme.models;
 
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -36,9 +34,7 @@ public class User {
     @JoinTable(name = "permissions_users", joinColumns = @JoinColumn(name="user_id"), inverseJoinColumns = @JoinColumn(name="userType_id"))
     private Set<UserType> userTypes;
 
-    @OneToOne
-    @JoinColumn(name = "profile_id", nullable = false)
-    @JsonIgnore
+    @OneToOne(mappedBy = "user")
     private Profile profile;
 
 }

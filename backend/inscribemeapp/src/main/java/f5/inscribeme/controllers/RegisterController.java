@@ -11,7 +11,7 @@ import f5.inscribeme.models.User;
 import f5.inscribeme.services.UserService;
 
 @RestController
-@RequestMapping
+@RequestMapping("/register")
 public class RegisterController {
 
     UserService service;
