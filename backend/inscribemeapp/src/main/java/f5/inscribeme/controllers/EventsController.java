@@ -4,6 +4,9 @@ import f5.inscribeme.models.Events;
 import f5.inscribeme.services.EventsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +29,10 @@ public class EventsController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Events> getEventById(@PathVariable Long id) {
+
+        SecurityContext contextHolder = SecurityContextHolder.getContext();
+        Authentication auth = contextHolder.getAuthentication();
+        System.out.println(auth.getName());
         Events event = eventsService.getEventById(id);
         if (event != null) {
             return new ResponseEntity<>(event, HttpStatus.OK);
