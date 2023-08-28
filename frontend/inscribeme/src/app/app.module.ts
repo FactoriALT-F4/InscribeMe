@@ -10,13 +10,17 @@ import { GuardiansComponent } from './core/guardians/guardians.component';
 import { EventsModule } from './events/events.module';
 import { FormsUserModule } from './forms-user/forms-user.module';
 import { FormsModule } from '@angular/forms';
+import { ModalprofileComponent } from './global/modalprofile/modalprofile.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    GuardiansComponent
+    GuardiansComponent,
+    ModalprofileComponent,
+    
   ],
   imports: [
     BrowserModule,

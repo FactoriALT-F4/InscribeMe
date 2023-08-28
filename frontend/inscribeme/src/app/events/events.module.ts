@@ -23,6 +23,7 @@ import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
 import { ProfileComponent } from './views/profile/profile.component';
 
+
 @NgModule({
   declarations: [
     AddeventComponent,
