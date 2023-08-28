@@ -21,15 +21,10 @@ public class RegisterController {
     }
 
     @PostMapping
-    public ResponseEntity<?> addUser(@RequestBody User user) throws Throwable {
+    public ResponseEntity<User> addUser(@RequestBody User user) throws Throwable {
 
-        try {
-            User savedUser = service.addUser(user);
-            return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-        }
-
+        User savedUser = service.addUser(user);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
 
 }

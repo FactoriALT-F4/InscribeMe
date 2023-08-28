@@ -35,20 +35,14 @@ public class UserService {
         }
     }
 
-    public User addUser(User user) {
-        try {
-            BCryptPasswordEncoder pwEncoder = new BCryptPasswordEncoder();
-            String encodedPw = pwEncoder.encode(user.getPassword());
-            user.setPassword(encodedPw);
+    public User addUser(User user) throws Throwable {
+        BCryptPasswordEncoder pwEncoder = new BCryptPasswordEncoder();
+        String encodedPw = pwEncoder.encode(user.getPassword());
+        user.setPassword(encodedPw);
 
-            this.assignDefaultUserType(user);
+        this.assignDefaultUserType(user);
 
-            return repo.save(user);
-        } catch (Throwable throwable) {
-
-            throwable.printStackTrace();
-            return null;
-        }
+        return repo.save(user);
     }
 
     public void assignDefaultUserType(User user) throws Throwable {
