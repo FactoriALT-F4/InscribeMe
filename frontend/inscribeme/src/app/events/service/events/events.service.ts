@@ -20,5 +20,9 @@ export class EventsService {
     const url = `${this.apiUrl}/${eventId}`; 
     return this.http.get<Events>(url);
   }
+
+  saveEvent(eventData: Events): Observable<Events> {
+    return this.http.post<Events>(this.apiUrl, eventData);
+  }
 }
 

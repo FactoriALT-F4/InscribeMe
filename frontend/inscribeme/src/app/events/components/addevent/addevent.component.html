@@ -1,0 +1,44 @@
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <i class="bi bi-plus-circle-fill"> Add new event</i>
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add new event</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="titleFormControlInput" class="form-label">Title</label>
+          <input type="text" class="form-control" id="titleFormControlInput" [(ngModel)]="event.name" placeholder="Enter an event title">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="event.description" placeholder="Enter an event description" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Image</label>
+          <input class="form-control" type="text" id="formFile" [(ngModel)]="event.imgUrl">
+        </div>
+        <div class="mb-3">
+          <label for="formParticipants" class="form-participants">Maximum participants</label>
+          <input type="number" class="form-control" step="1" [(ngModel)]="event.maxPeople" placeholder="Enter an integer">
+        </div>
+        <div class="mb-3">
+          <label for="dateTimeFormControlInput" class="form-label">Fecha de inicio</label>
+          <input type="datetime-local" class="form-control" id="dateTimeFormControlInput" [(ngModel)]="event.startingDate">
+        </div>
+        <div class="mb-3">
+          <label for="dateTimeFormControlInput" class="form-label">Fecha de finalización</label>
+          <input type="datetime-local" class="form-control" id="dateTimeFormControlInput" [(ngModel)]="event.enDate">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="eventsave()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

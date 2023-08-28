@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GuardiansComponent } from './core/guardians/guardians.component';
 import { EventsModule } from './events/events.module';
 import { FormsUserModule } from './forms-user/forms-user.module';
+import { FormsModule } from '@angular/forms';
 import { ModalprofileComponent } from './global/modalprofile/modalprofile.component';
 // import ngx-translate and the http loader
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -33,6 +34,7 @@ import { HttpClient } from '@angular/common/http';
     HttpClientModule,
     EventsModule,
     FormsUserModule,
+    FormsModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

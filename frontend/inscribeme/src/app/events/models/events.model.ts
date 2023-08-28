@@ -4,8 +4,8 @@ export interface Events {
     description: string;
     imgUrl: string;
     startingDate: string;
-    endDate: string;
+    enDate: string;
     creationDate: string;
-    insPeople: string;
-    maxPeople: string;
+    insPeople: number;
+    maxPeople: number;
  }
