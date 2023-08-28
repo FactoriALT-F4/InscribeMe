@@ -14,15 +14,17 @@ export class AddeventComponent {
     description: '',
     imgUrl: '',
     startingDate: '',
-    endDate: '',
+    enDate: '',
     creationDate: '',
-    insPeople: '',
-    maxPeople: ''
+    insPeople: 0,
+    maxPeople: 0
   };
 
   constructor(private eventsService: EventsService) {}
 
   eventsave() {
+    const currentDateTime = new Date().toISOString().slice(0, 16);
+    this.event.creationDate = currentDateTime;
     this.eventsService.saveEvent(this.event).subscribe(
       savedEvent => {
         this.event = savedEvent;
@@ -33,10 +35,10 @@ export class AddeventComponent {
           description: '',
           imgUrl: '',
           startingDate: '',
-          endDate: '',
+          enDate: '',
           creationDate: '',
-          insPeople: '',
-          maxPeople: ''
+          insPeople: 0,
+          maxPeople: 0
         };
       },
       error => {
