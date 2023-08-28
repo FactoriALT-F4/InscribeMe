@@ -20,6 +20,7 @@ import { DetailsComponent } from './views/details/details.component';
 import { EventsRoutingModule } from './events-routing.module';
 import { ProfileComponent } from './views/profile/profile.component';
 
+
 @NgModule({
   declarations: [
     ButtonaddeventComponent,
