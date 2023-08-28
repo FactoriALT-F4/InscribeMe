@@ -6,25 +6,15 @@
 }
 
 .logo {
-display: flex;
-flex-direction: column;
-justify-content: center;
-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #EDF6A9;
 }    
 
 #logo {
     border-radius: 50%;
     min-width: 100px;
     min-height: 100px;
-} 
-
-#logouser {
-    max-width: 50px;
-    border-radius: 50%;
-    align-items:center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
 }
 
