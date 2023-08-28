@@ -10,3 +10,6 @@ INSERT INTO permissions (id_user_type, type) VALUES
 /* user_profile */
 INSERT INTO user_profile (idprofile, lastname, name) VALUES
 (1, 'Admin', 'Admin');
+
+INSERT INTO permission_user (user_id, user_type_id) VALUES
+(1, 1);
