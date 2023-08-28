@@ -2,6 +2,8 @@ package f5.inscribeme.models;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -30,6 +32,7 @@ public class User {
     @Column(name = "password")
     public String password;
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "permissions_users", joinColumns = @JoinColumn(name="user_id"), inverseJoinColumns = @JoinColumn(name="userType_id"))
     private Set<UserType> userTypes;
