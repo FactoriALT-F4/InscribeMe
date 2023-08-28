@@ -38,8 +38,8 @@ public class SecurityConfiguration {
                         .logoutUrl("/logout")
                         .deleteCookies("JSESSIONID"))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/events/**", "/register", "/login").permitAll()
-                        .requestMatchers("/users/**","/permissions").hasRole("ADMIN")
+                        .requestMatchers("/events/{$id}", "/register", "/login", "/events").permitAll()
+                        .requestMatchers("/users/**","/permissions","/events/**").hasRole("ADMIN")
                         // .requestMatchers("/p", "null").hasRole("USER")
                         .anyRequest().authenticated()
                         )
