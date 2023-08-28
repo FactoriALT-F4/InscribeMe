@@ -41,13 +41,13 @@ public class EventsController {
         }
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Events> createEvent(@RequestBody Events event) {
         Events createdEvent = eventsService.createEvent(event);
         return new ResponseEntity<>(createdEvent, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Events> updateEvent(@PathVariable Long id, @RequestBody Events event) {
         Events updatedEvent = eventsService.updateEvent(id, event);
         if (updatedEvent != null) {
@@ -57,7 +57,7 @@ public class EventsController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteEvent(@PathVariable Long id) {
         boolean deleted = eventsService.deleteEvent(id);
         if (deleted) {

@@ -21,6 +21,7 @@ import { HomeadminComponent } from './views/homeadmin/homeadmin.component';
 import { AddeventComponent } from './components/addevent/addevent.component';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
+import { ProfileComponent } from './views/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { SearchComponent } from './components/search/search.component';
     DetailsComponent,
     HomeadmincardsComponent,
     HomeadminComponent,
-    SearchComponent
+    SearchComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
