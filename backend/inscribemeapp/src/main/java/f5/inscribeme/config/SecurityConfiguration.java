@@ -38,15 +38,16 @@ public class SecurityConfiguration {
                         .logoutUrl("/logout")
                         .deleteCookies("JSESSIONID"))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/events/**", "/register", "/login").permitAll()
-                        .requestMatchers("/users/**").hasRole("ADMIN")
+                        .requestMatchers("/events/{$id}", "/register", "/login", "/events").permitAll()
+                        .requestMatchers("/users/**","/permissions","/events/**").hasRole("ADMIN")
                         // .requestMatchers("/p", "null").hasRole("USER")
-                        // .anyRequest().authenticated()
+                        .anyRequest().authenticated()
                         )
                 .userDetailsService(jpaUserDetailsService)
                 .httpBasic(withDefaults())
                 .sessionManagement(session -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED));
+                        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
+                        .headers(headers->headers.frameOptions(frame -> frame.sameOrigin()));
 
         return http.build();
     }
@@ -57,6 +58,7 @@ public class SecurityConfiguration {
         configuration.setAllowCredentials(true);
         configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
+        configuration.setAllowedHeaders(Arrays.asList("*"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;

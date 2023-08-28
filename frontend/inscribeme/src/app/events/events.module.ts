@@ -41,7 +41,7 @@ import { ProfileComponent } from './views/profile/profile.component';
     HomeComponent,
     DetailsComponent,
     ProfileComponent
-     ],
+  ],
   imports: [
     CommonModule,
     EventsRoutingModule
