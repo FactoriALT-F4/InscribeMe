@@ -39,7 +39,7 @@ public class SecurityConfiguration {
                         .deleteCookies("JSESSIONID"))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/events/**", "/register", "/login").permitAll()
-                        .requestMatchers("/users/**").hasRole("ADMIN")
+                        .requestMatchers("/users/**","/permissions").hasRole("ADMIN")
                         // .requestMatchers("/p", "null").hasRole("USER")
                         .anyRequest().authenticated()
                         )
