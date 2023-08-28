@@ -32,13 +32,12 @@ public class User {
     @Column(name = "password")
     public String password;
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "permissions_users", joinColumns = @JoinColumn(name="user_id"), inverseJoinColumns = @JoinColumn(name="userType_id"))
     private Set<UserType> userTypes;
 
-    @OneToOne
-    @JoinColumn(name = "profile_id", nullable = false)
-    @JsonIgnore
+    @OneToOne(mappedBy = "user")
     private Profile profile;
 
 }
