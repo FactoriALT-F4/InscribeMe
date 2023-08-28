@@ -10,6 +10,12 @@ import { GuardiansComponent } from './core/guardians/guardians.component';
 import { EventsModule } from './events/events.module';
 import { FormsUserModule } from './forms-user/forms-user.module';
 import { ModalprofileComponent } from './global/modalprofile/modalprofile.component';
+// import ngx-translate and the http loader
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+
+
 
 
 @NgModule({
@@ -26,9 +32,22 @@ import { ModalprofileComponent } from './global/modalprofile/modalprofile.compon
     AppRoutingModule,
     HttpClientModule,
     EventsModule,
-    FormsUserModule
+    FormsUserModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+// required for AOT compilation(Localization)
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+}
