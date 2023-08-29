@@ -5,7 +5,7 @@
       <div class="col-8">
         <div class="card-body">
             <p class="card-text">{{ event.startingDate }}<app-favorites [event]="event"></app-favorites></p>
-            <p class="card-title">{{ event.name }}</p>
+            <h3 class="card-title">{{ event.name }}</h3>
             <p class="card-text">{{ event.description }}</p>
             <p class="card-text">{{ event.insPeople }}/{{ event.maxPeople }} {{ 'inscritos' | translate }}<button [routerLink]="['/details',event.idevents]" class="btn btn-primary">{{ 'Mas' | translate }}</button></p>
           </div>
