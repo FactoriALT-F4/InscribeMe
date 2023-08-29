@@ -7,6 +7,7 @@ import { UserloggedComponent } from './components/userlogged/userlogged.componen
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { FormsUserRoutingModule } from './forms-user-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsUserRoutingModule } from './forms-user-routing.module';
   ],
   imports: [
     CommonModule,
-    FormsUserRoutingModule
+    FormsUserRoutingModule,
+    FormsModule
   ]
 })
 export class FormsUserModule { }

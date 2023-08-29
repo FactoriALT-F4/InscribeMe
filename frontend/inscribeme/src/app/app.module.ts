@@ -20,6 +20,7 @@ import { TranslatePipe } from './translate.pipe';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,7 @@ import { TranslatePipe } from './translate.pipe';
     FooterComponent,
     GuardiansComponent,
     ModalprofileComponent,
-    TranslatePipe,
+    TranslatePipe
     
   ],
   imports: [
