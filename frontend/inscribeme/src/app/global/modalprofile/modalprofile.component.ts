@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LocalizationService } from '../services/localization-service.service';
 
 @Component({
   selector: 'app-modalprofile',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class ModalprofileComponent {
 
+  constructor(private localizationService: LocalizationService) { }
+
+  changeLanguage(lang: string) {
+    this.localizationService.changeLanguage(lang);
+  }
 }

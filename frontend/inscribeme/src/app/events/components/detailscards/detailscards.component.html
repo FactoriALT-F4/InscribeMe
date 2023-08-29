@@ -3,8 +3,8 @@
       <h2 class="card-title">{{ event.name }}</h2>
       <p class="card-text">{{ event.startingDate }}</p>
       <img [src]="'../assets' + event.imgUrl" class="card-img-top" alt="...">
-      <p class="card-text">{{ event.insPeople }}/{{ event.maxPeople }} Inscritos</p>
+      <p class="card-text">{{ event.insPeople }}/{{ event.maxPeople }} {{ 'inscritos' | translate }}</p>
       <p class="card-text">{{ event.description }}</p>
-      <button type="button" class="btn btn-info">Join</button>
+      <button type="button" class="btn btn-info">{{ 'Unete' | translate }}</button>
     </div>
 </div>
