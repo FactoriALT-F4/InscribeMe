@@ -1,5 +1,18 @@
 {
     "Hola": "Hola",
    "Solo Texto": "Solo Texto",
-   "inscritos": "inscritos"
+   "inscritos": "inscritos",
+   "Mas": "Mas",
+   "Editar": "Editar",
+   "Unete": "Unete",
+   "Añadir nuevo evento": "Añadir nuevo evento",
+  "Añadir evento": "Añadir evento",
+  "Título": "Título",
+  "Descripción": "Descripción",
+  "Imagen": "Imagen",
+  "Aforo maximo": "Aforo máximo",
+  "Fecha de inicio": "Fecha de inicio",
+  "Fecha de finalización": "Fecha de finalización",
+  "Cerrar": "Cerrar",
+  "Guardar cambios": "Guardar cambios"
 }
