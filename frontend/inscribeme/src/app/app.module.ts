@@ -15,6 +15,7 @@ import { ModalprofileComponent } from './global/modalprofile/modalprofile.compon
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
+import { TranslatePipe } from './translate.pipe';
 
 
 
@@ -26,6 +27,7 @@ import { HttpClient } from '@angular/common/http';
     FooterComponent,
     GuardiansComponent,
     ModalprofileComponent,
+    TranslatePipe,
     
   ],
   imports: [
