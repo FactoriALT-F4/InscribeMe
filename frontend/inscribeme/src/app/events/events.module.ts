@@ -26,6 +26,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { DetailsadminComponent } from './views/detailsadmin/detailsadmin.component';
+import { DetailsadmincardsComponent } from './components/detailsadmincards/detailsadmincards.component';
 
 
 @NgModule({
@@ -49,7 +51,9 @@ import { HttpClient } from '@angular/common/http';
     HomeadmincardsComponent,
     HomeadminComponent,
     SearchComponent,
-    ProfileComponent
+    ProfileComponent,
+    DetailsadminComponent,
+    DetailsadmincardsComponent
   ],
   imports: [
     CommonModule,

@@ -4,6 +4,7 @@ import { HomeComponent } from './views/home/home.component';
 import { DetailsComponent } from './views/details/details.component';
 import { HomeadminComponent } from './views/homeadmin/homeadmin.component';
 import { ProfileComponent } from './views/profile/profile.component';
+import { DetailsadminComponent } from './views/detailsadmin/detailsadmin.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'homeadmin', component: HomeadminComponent},
   { path: 'details/:id', component: DetailsComponent },
+  { path: 'detailsadmin/:id', component: DetailsadminComponent},
   { path: 'profile', component: ProfileComponent}
 ];
 
