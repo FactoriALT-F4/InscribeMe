@@ -22,7 +22,7 @@ export class EventsService {
   }
 
   saveEvent(eventData: Events): Observable<Events> {
-    return this.http.post<Events>(this.apiUrl, eventData);
+    return this.http.post<Events>(`${this.apiUrl}/create`, eventData);
   }
 }
 
