@@ -1,0 +1,14 @@
+.custom-button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: blue;
+  
+    &:hover {
+      color: darkblue;
+    }
+  
+    .bi {
+      color: inherit;
+    }
+}
