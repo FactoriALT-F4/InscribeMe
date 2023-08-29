@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { EventsService } from '../../service/events/events.service';
 import { Events } from '../../models/events.model';
 
+
 @Component({
   selector: 'app-homecards',
   templateUrl: './homecards.component.html',

@@ -22,6 +22,10 @@ import { AddeventComponent } from './components/addevent/addevent.component';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
 import { ProfileComponent } from './views/profile/profile.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -50,7 +54,21 @@ import { ProfileComponent } from './views/profile/profile.component';
   imports: [
     CommonModule,
     EventsRoutingModule,
-    FormsModule
+    FormsModule,
+    TranslateModule.forChild({
+      defaultLanguage: 'es',
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
   ]
 })
 export class EventsModule { }
+
+
+// required for AOT compilation(Localization)
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+}
