@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent {
-  email!: string;
+  mail!: string;
   password!: string;
  
 
@@ -17,7 +17,7 @@ export class SigninComponent {
 
   
   login() {
-    const user = { email: this.email, password: this.password };
+    const user = { mail: this.mail, password: this.password };
     this.userService.login(user).subscribe((data) => {
       this.userService.setToken(data.token);
       this.router.navigateByUrl("/");
