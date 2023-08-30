@@ -19,7 +19,7 @@ export class DeleteeventComponent {
     this.eventsService.deleteEvent(eventIdToDelete).subscribe(
       response => {
         window.alert('Evento eliminado correctamente');
-        this.router.navigate(['/detailsadmin']);
+        this.router.navigate(['/homeadmin']);
       },
       error => {
         window.alert('Error al eliminar el evento. Por favor, intenta nuevamente.');

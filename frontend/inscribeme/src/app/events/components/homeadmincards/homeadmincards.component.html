@@ -5,7 +5,7 @@
       </div>
       <div class="col-8">
           <div class="card-body">   
-              <button class="btn btn-primary btn-sm float-end">{{ 'Editar' | translate }}</button>
+              <button [routerLink]="['/detailsadmin',event.idevents]" class="btn btn-primary btn-sm float-end">{{ 'Editar' | translate }}</button>
               <p class="card-title mb-0">{{ event.name }}</p>
               <p class="card-text text-truncate mb-0">{{ event.description }}</p>
               <p class="card-text mb-0">{{ event.insPeople }}/{{ event.maxPeople }}{{ 'inscritos' | translate }}</p>
