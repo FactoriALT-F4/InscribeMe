@@ -24,5 +24,9 @@ export class EventsService {
   saveEvent(eventData: Events): Observable<Events> {
     return this.http.post<Events>(`${this.apiUrl}/create`, eventData);
   }
+
+  deleteEvent(eventId: string): Observable<Events> {
+    return this.http.delete<Events>(`${this.apiUrl}/delete/${eventId}`);
+  }
 }
 
