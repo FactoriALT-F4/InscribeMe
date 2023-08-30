@@ -1,9 +1,7 @@
 .card{
   margin: 5% auto;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-img{
-  margin: 5%;
-}
+
 
 p{
   font-size:small;
@@ -40,7 +38,8 @@ h3 {
 }
 
 .btn{
-  float: right;
+  float: center;
+  margin-left: 40%;
   margin-bottom: 5%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border: 0px;
