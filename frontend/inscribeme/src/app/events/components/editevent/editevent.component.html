@@ -1,1 +1,46 @@
-<p>editevent works!</p>
+<div class="container mt-5">
+    <button class="btn custom-button" id="editButton" data-bs-toggle="modal" data-bs-target="#editModal" (click)="loadEventDetails(event)">
+        <i class="bi bi-pencil-square"></i> {{ 'Editar' | translate }}
+    </button>       
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">{{ 'Modificar evento' | translate }}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="titleFormControlInput" class="form-label">{{ 'Título' | translate }}</label>
+            <input type="text" class="form-control" id="titleFormControlInput" [(ngModel)]="event.name" placeholder="Enter an event title">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">{{ 'Descripción' | translate }}</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="event.description" placeholder="Enter an event description" rows="3"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="formFile" class="form-label">{{ 'Imagen' | translate }}</label>
+            <input class="form-control" type="text" id="formFile" [(ngModel)]="event.imgUrl">
+          </div>
+          <div class="mb-3">
+            <label for="formParticipants" class="form-participants">{{ 'Aforo maximo' | translate }}</label>
+            <input type="number" class="form-control" step="1" [(ngModel)]="event.maxPeople" placeholder="Enter an integer">
+          </div>
+          <div class="mb-3">
+            <label for="dateTimeFormControlInput" class="form-label">{{ 'Fecha de inicio' | translate }}</label>
+            <input type="datetime-local" class="form-control" id="dateTimeFormControlInput" [(ngModel)]="event.startingDate">
+          </div>
+          <div class="mb-3">
+            <label for="dateTimeFormControlInput" class="form-label">{{ 'Fecha de finalización' | translate }}</label>
+            <input type="datetime-local" class="form-control" id="dateTimeFormControlInput" [(ngModel)]="event.enDate">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'Cerrar' | translate }}</button>
+          <button type="button" class="btn btn-primary" (click)="eventsave()">{{ 'Guardar cambios' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventsService } from '../../service/events/events.service';
 import { Events } from '../../models/events.model';
+import { format } from 'date-fns';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-detailsadmincards',
@@ -11,9 +13,12 @@ import { Events } from '../../models/events.model';
 export class DetailsadmincardsComponent implements OnInit{
 
   event: Events | undefined;
-  eventsData: Events[] = [];
 
-  constructor(private eventsService: EventsService, private route: ActivatedRoute,) { }
+  constructor(
+    private eventsService: EventsService,
+    private route: ActivatedRoute,
+    private translateService: TranslateService
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -33,5 +38,11 @@ export class DetailsadmincardsComponent implements OnInit{
         console.log('Error fetching event data: ', error);
       }
     );
+  }
+
+  formatEventDate(dateString: string): string {
+    const date = new Date(dateString);
+    const formattedDate = format(date, 'dd-MM-yyyy HH:mm');
+    return formattedDate;
   }
 }

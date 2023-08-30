@@ -1,16 +1,16 @@
 <div class="card mb-3" *ngFor="let event of eventsData" style="max-width: 540px;">
-  <div class="row g-0">
-      <div class="col-3">
-          <img [src]="'../assets' + event.imgUrl" class="img-fluid rounded-start" alt="Event Image">
-      </div>
-      <div class="col-8">
-          <div class="card-body">   
-              <button class="btn btn-primary btn-sm float-end">{{ 'Editar' | translate }}</button>
-              <p class="card-title mb-0">{{ event.name }}</p>
-              <p class="card-text text-truncate mb-0">{{ event.description }}</p>
-              <p class="card-text mb-0">{{ event.insPeople }}/{{ event.maxPeople }}{{ 'inscritos' | translate }}</p>
-              <p class="card-text mb-0">{{ event.startingDate }}</p>
-          </div>
-      </div>
-  </div>
+    <div class="row g-0">
+        <div class="col-3">
+            <img [src]="'../assets' + event.imgUrl" class="img-fluid rounded-start" alt="Event Image">
+        </div>
+        <div class="col-8">
+            <div class="card-body">   
+                <button class="btn btn-primary btn-sm float-end" [routerLink]="['/detailsadmin', event.idevents]">{{ 'Editar' | translate }}</button>
+                <p class="card-title mb-0">{{ 'event' + event.idevents + '.name' | translate }}</p>
+                <p class="card-text text-truncate mb-0">{{ 'event' + event.idevents + '.description' | translate }}</p>
+                <p class="card-text mb-0">{{ event.insPeople }}/{{ event.maxPeople }}{{ 'inscritos' | translate }}</p>
+                <p class="card-text mb-0"id="datep">{{ formatEventDate(event.startingDate) }}</p>
+            </div>
+        </div>
+    </div>
 </div>
