@@ -1,14 +1,15 @@
 <div class="card mb-3" *ngFor="let event of eventsData" style="max-width: 540px;">
-    <div class="row g-0">
-      <div class="col-4">
-        <img [src]="'../assets' + event.imgUrl" class="img-fluid rounded-start" alt="Event Image">      </div>
-      <div class="col-8">
-        <div class="card-body">
-            <p class="card-text">{{ event.startingDate }}<app-favorites [event]="event"></app-favorites></p>
-            <h3 class="card-title">{{ event.name }}</h3>
-            <p class="card-text">{{ event.description }}</p>
-            <p class="card-text">{{ event.insPeople }}/{{ event.maxPeople }} {{ 'inscritos' | translate }}<button [routerLink]="['/details',event.idevents]" class="btn btn-primary">{{ 'Mas' | translate }}</button></p>
-          </div>
+  <div class="row g-0">
+    <div class="col-4">
+      <img [src]="'../assets' + event.imgUrl" class="img-fluid rounded-start" alt="Event Image">
+    </div>
+    <div class="col-8">
+      <div class="card-body">
+        <p class="card-text" id="datep">{{ formatEventDate(event.startingDate) }}<app-favorites [event]="event"></app-favorites></p>
+        <h3 class="card-title">{{ 'event' + event.idevents + '.name' | translate }}</h3>
+        <p class="card-text">{{ 'event' + event.idevents + '.description' | translate }}</p>
+        <p class="card-text" id="insp">{{ event.insPeople }}/{{ event.maxPeople }} {{ 'inscritos' | translate }}<button [routerLink]="['/details', event.idevents]" class="btn btn-primary">{{ 'Mas' | translate }}</button></p>
       </div>
     </div>
+  </div>
 </div>
