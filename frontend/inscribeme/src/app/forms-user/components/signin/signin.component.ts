@@ -67,31 +67,25 @@ export class SigninComponent {
 
   login() {
     this.errorMessage = null; // Restablecer el mensaje de error
-
+  
     if (this.formlogin.invalid) {
       return; // No enviar la solicitud si el formulario es inválido
     }
-
+  
     const username = this.formlogin.value.username;
     const password = this.formlogin.value.password;
-
-    const credentials = `${username}:${password}`;
-    const authHeader = 'Basic ' + btoa(credentials);
-
-    // Set the Authorization header
+  
+    // Generar el encabezado de autorización
+    const authHeader = 'Basic ' + btoa(username + ':' + password);
     const headers = new HttpHeaders({ 'Authorization': authHeader });
-
-    // Prepare the user object with the required properties
-    const user: Users = { mail: username, password: password };
-
-    // Send the login request with the headers
-    this.usersService.loginUser(user).subscribe(
+  
+    // Enviar la solicitud de inicio de sesión con el encabezado de autorización
+    this.usersService.loginUser(username, password, headers).subscribe(
       (data) => {
-        // Successful login, handle the response
         console.log(data);
       },
       (error) => {
-        // Error handling
+        // Manejo de errores
         console.error('Login error:', error);
         if (error.status === 401) {
           this.errorMessage = 'Credenciales incorrectas. Por favor, verifica tus datos.';

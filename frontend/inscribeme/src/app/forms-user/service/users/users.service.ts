@@ -16,11 +16,8 @@ export class UsersService {
   public registerUser(user: any): Observable<any> {
     return this.httpClient.post(`${AppConfig.baseUrl}/register`, user);
   }
-  public loginUser(user:any): Observable<any> {
-    // tienes que generar un token basic y ponerlo en el header
-    const headers = new HttpHeaders({ 'Authorization': 'Basic amVzdXM6MTExMQ==' });
-    // se ha pasado el metodo de get a post para poder enviar el header
-    return this.httpClient.post<Users>(`${AppConfig.baseUrl}/login`, user,{headers});
+  public loginUser(username: string, password: string, headers: HttpHeaders): Observable<any> {
+    return this.httpClient.post<any>(`${AppConfig.baseUrl}/login`, {}, { headers });
   }
   setUser(user: any) {
     this.actualUser = user;

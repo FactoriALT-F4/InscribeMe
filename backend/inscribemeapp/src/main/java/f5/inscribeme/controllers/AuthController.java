@@ -7,17 +7,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-// se ha cambiado el GetMapping por el PostMapping
-// import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 @RestController
 public class AuthController {
-    @PostMapping(path="/login")
-    public ResponseEntity<Map<String,String>> login(){
+
+    @PostMapping(path = "/login")
+    public ResponseEntity<Map<String, String>> login() {
+        System.out.println("Received login request"); // Agregar este registro
         SecurityContext contextHolder = SecurityContextHolder.getContext();
         Authentication auth = contextHolder.getAuthentication();
-        Map<String,String> json = new HashMap<>();
+        Map<String, String> json = new HashMap<>();
         json.put("message", "Logged");
         json.put("username", auth.getName());
         json.put("roles", auth.getAuthorities().iterator().next().toString());
