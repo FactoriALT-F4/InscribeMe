@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { EventsService } from '../../service/events/events.service';
 
 @Component({
@@ -8,35 +8,31 @@ import { EventsService } from '../../service/events/events.service';
   styleUrls: ['./editevent.component.scss']
 })
 export class EditeventComponent implements OnInit {
-  eventDetails: any = {};
-
+  event: any = {};
+  
   constructor(
-    private route: ActivatedRoute,
     private router: Router,
     private eventsService: EventsService
   ) {}
 
-  ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      const eventId = params.get('eventId');
-      if (eventId !== null) {
-        this.loadEventDetails(eventId);
-      }
-    });
+  ngOnInit() {}
+
+  loadEventDetails(event: any) {
+    console.log(event)
+    this.event = event;
   }
 
-  loadEventDetails(eventId: string) {
-    this.eventsService.getEvent(eventId).subscribe(
-      response => {
-        this.eventDetails = response;
-      },
-      error => {
-        console.error('Error al cargar detalles del evento:', error);
-      }
-    );
-  }
-
-  onEditClick() {
-    this.router.navigate(['/editevent'], { state: { eventDetails: this.eventDetails } });
+  eventsave() {
+    if (this.event.id) {
+      this.eventsService.saveEvent(this.event).subscribe(
+        savedEvent => {
+          console.log('Evento actualizado:', savedEvent);
+          this.router.navigate(['/homeadmin']);
+        },
+        error => {
+          console.error('Error al actualizar evento:', error);
+        }
+      );
+    }
   }
 }
