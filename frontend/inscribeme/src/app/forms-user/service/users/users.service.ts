@@ -8,14 +8,35 @@ import { CookieService } from "ngx-cookie-service";
 })
 export class UsersService {
 
+  // authenticated = false;
+
   constructor(private http: HttpClient, private cookies: CookieService) { }
 
+
+  // authenticate(credentials: { mail: string; password: string; }, callback: () => any) {
+
+  //   const headers = new HttpHeaders(credentials ? {
+  //     authorization: 'Basic ' + btoa(credentials.mail + ':' + credentials.password)
+  //   } : {});
+
+  //   this.http.get('user', { headers: headers }).subscribe(response => {
+  //     if (response['mail']) {
+  //       this.authenticated = true;
+  //     } else {
+  //       this.authenticated = false;
+  //     }
+  //     return callback && callback();
+  //   });
+
+  // }
+
+
   login(user: any): Observable<any> {
-    return this.http.post("http://localhost:4000/login", user);
+    return this.http.get("http://localhost:4000/login", user);
   }
 
-  setToken(token: string) { 
-    this.cookies.set("token", token); 
+  setToken(token: string) {
+    this.cookies.set("token", token);
   }
 
   getToken() {
@@ -26,12 +47,12 @@ export class UsersService {
     return this.http.get("http://localhost:4000/users");
   }
 
-  getUserLogged(): Observable<any> { 
+  getUserLogged(): Observable<any> {
     const token = this.getToken();
     const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}` 
+      Authorization: `Bearer ${token}`
     });
 
-    return this.http.get("http://localhost:4000/users", { headers }); 
+    return this.http.get("http://localhost:4000/users", { headers });
   }
 }
