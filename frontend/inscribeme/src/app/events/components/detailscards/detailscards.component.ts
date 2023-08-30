@@ -2,18 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventsService } from '../../service/events/events.service';
 import { Events } from '../../models/events.model';
+import { TranslateService } from '@ngx-translate/core';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-detailscards',
   templateUrl: './detailscards.component.html',
   styleUrls: ['./detailscards.component.scss']
 })
-export class DetailscardsComponent implements OnInit{
+export class DetailscardsComponent implements OnInit {
 
   event: Events | undefined;
-  eventsData: Events[] = [];
 
-  constructor(private eventsService: EventsService, private route: ActivatedRoute,) { }
+  constructor(
+    private eventsService: EventsService,
+    private route: ActivatedRoute,
+    private translateService: TranslateService
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -35,4 +40,9 @@ export class DetailscardsComponent implements OnInit{
     );
   }
 
+  formatEventDate(dateString: string): string {
+    const date = new Date(dateString);
+    const formattedDate = format(date, 'dd-MM-yyyy HH:mm');
+    return formattedDate;
+  }
 }
