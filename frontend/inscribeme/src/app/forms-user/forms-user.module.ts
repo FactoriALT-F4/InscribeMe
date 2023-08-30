@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonloginComponent } from './components/buttonlogin/buttonlogin.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsUserRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class FormsUserModule { }

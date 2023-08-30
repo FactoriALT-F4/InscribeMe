@@ -1,65 +1,106 @@
 // import { Component } from '@angular/core';
 // import { UsersService } from '../../service/users/users.service';
-// import { Router } from '@angular/router';
+// import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// import { Users } from '../../models/users.model';
 
 // @Component({
 //   selector: 'app-signin',
 //   templateUrl: './signin.component.html',
-//   styleUrls: ['./signin.component.scss']
+//   styleUrls: ['./signin.component.scss'],
 // })
 // export class SigninComponent {
-//   email: string = ''; 
-//   password: string = '';
+//   formlogin!: FormGroup;
+//   submitted = false;
+//   loading = false;
+  
+//   constructor(private usersService: UsersService, private formBuilder: FormBuilder) {}
 
-//   constructor(public userService: UsersService, private router: Router) {}
+//   ngOnInit() {
+//     this.formlogin = this.formBuilder.group({
+//       username: ['', Validators.required],
+//       password: ['', [Validators.required, Validators.minLength(4)]]
+//     });
+//   }
 
 //   login() {
-//     const user = { email: this.email, password: this.password };
-//     this.userService.login(user).subscribe((data) => {
-//       this.userService.setToken(data.token);
-//      
+//     if (this.formlogin.invalid) {
+//       return; // No enviar la solicitud si el formulario es inválido
+//     }
+
+//     const username = this.formlogin.value.username;
+//     const password = this.formlogin.value.password;
+
+//     const user: Users = { mail: username, password: password };
+
+//     this.usersService.loginUser(user).subscribe((data) => {
+//       // Falta enviar a la ruta correspondiente
+//       console.log(data);
 //     });
 //   }
 // }
 
 import { Component } from '@angular/core';
 import { UsersService } from '../../service/users/users.service';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Users } from '../../models/users.model';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss']
+  styleUrls: ['./signin.component.scss'],
 })
 export class SigninComponent {
-  credentials = {
-    mail: '',
-    password: ''
-  };
+  formlogin!: FormGroup;
+  submitted = false;
+  loading = false;
+  errorMessage: string | null = null; // Variable para mostrar mensajes de error
+  
+  constructor(private usersService: UsersService, private formBuilder: FormBuilder) {}
 
-  constructor(private userService: UsersService, private router: Router) {}
-  
-  users: any[] = [];
-  
   ngOnInit() {
-    this.userService.getUsers().subscribe(
+    this.formlogin = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(4)]]
+    });
+  }
+
+  login() {
+    this.errorMessage = null; // Restablecer el mensaje de error
+
+    if (this.formlogin.invalid) {
+      return; // No enviar la solicitud si el formulario es inválido
+    }
+
+    const username = this.formlogin.value.username;
+    const password = this.formlogin.value.password;
+
+    const credentials = `${username}:${password}`;
+    const authHeader = 'Basic ' + btoa(credentials);
+
+    // Set the Authorization header
+    const headers = new HttpHeaders({ 'Authorization': authHeader });
+
+    // Prepare the user object with the required properties
+    const user: Users = { mail: username, password: password };
+
+    // Send the login request with the headers
+    this.usersService.loginUser(user).subscribe(
       (data) => {
-        this.users = data;
-        console.log('Usuarios:', this.users);
+        // Successful login, handle the response
+        console.log(data);
       },
       (error) => {
-        console.error('Error al obtener usuarios:', error);
+        // Error handling
+        console.error('Login error:', error);
+        if (error.status === 401) {
+          this.errorMessage = 'Credenciales incorrectas. Por favor, verifica tus datos.';
+        } else {
+          this.errorMessage = 'Hubo un error en el inicio de sesión. Por favor, intenta de nuevo más tarde.';
+        }
       }
     );
   }
-
-
-
-  login() {
-    this.userService.authenticate(this.credentials, () => {
-      this.router.navigateByUrl("/");
-      console.log('Usuario autenticado:', this.userService.authenticated);
-    });
-  }
 }
+
 
