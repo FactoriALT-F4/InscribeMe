@@ -1,16 +1,54 @@
 .card{
-    margin-left: 13%;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-.btn {
-    background-color: #20c997;
-    color: white;
-    border-color: black;
-    margin-left: 35%;
-    padding: 8px 25px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    font-weight: bold;
-  }
+  margin: 5% auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+img{
+  margin: 5%;
+}
+
+p{
+  font-size:small;
+}
+
+#datediv {
+  border: 2px solid red;
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+}
+
+
+
+#datep {
+  font-size: small;
+  font-weight: bold;
+  color: #61E8A7 ;
+  font-style: oblique;
+  
+  
+}
+
+#insp {
+font-size: small;
+  font-weight: bold;
+  color: #406494;
+  font-style: oblique;
+
+}
+
+h3 {
+  color: #406494;
+}
+
+.btn{
+  float: right;
+  margin-bottom: 5%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 0px;
+  font-weight: bold;
+  font-size: small;
+  background-color: #406494;
+  color: #EDF6A9;
+}
+
 }
  

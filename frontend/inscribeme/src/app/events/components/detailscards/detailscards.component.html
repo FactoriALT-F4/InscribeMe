@@ -1,10 +1,16 @@
-<div class="card" style="width: 18rem;" *ngIf="event"> 
-    <div class="card-body">
-      <h2 class="card-title">{{ event.name }}</h2>
-      <p class="card-text">{{ event.startingDate }}</p>
-      <img [src]="'../assets' + event.imgUrl" class="card-img-top" alt="...">
-      <p class="card-text">{{ event.insPeople }}/{{ event.maxPeople }} {{ 'inscritos' | translate }}</p>
-      <p class="card-text">{{ event.description }}</p>
-      <button type="button" class="btn btn-info">{{ 'Unete' | translate }}</button>
+<div class="card mb-3" *ngIf="event" id="details-card">
+  <div class="row g-0">
+    <div class="col-4">
+      <img [src]="'../assets' + event.imgUrl" class="img-fluid rounded-start" alt="Event Image">
     </div>
+    <div class="col-8">
+      <div class="card-body">
+        <p class="card-text" id="datep">{{ formatEventDate(event.startingDate) }}<app-favorites [event]="event"></app-favorites></p>
+        <h2 class="card-title">{{ 'event' + event.idevents + '.name' | translate }}</h2>
+        <p class="card-text">{{ 'event' + event.idevents + '.description' | translate }}</p>
+        <p class="card-text" id="insp">{{ event.insPeople }}/{{ event.maxPeople }} {{ 'inscritos' | translate }}</p>
+        <button type="button" class="btn btn-info">{{ 'Unete' | translate }}</button>
+      </div>
+    </div>
+  </div>
 </div>
