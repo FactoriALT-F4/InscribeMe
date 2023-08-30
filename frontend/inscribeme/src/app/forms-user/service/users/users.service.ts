@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { CookieService } from "ngx-cookie-service";
 
@@ -11,21 +11,27 @@ export class UsersService {
   constructor(private http: HttpClient, private cookies: CookieService) { }
 
   login(user: any): Observable<any> {
-    return this.http.post("https://../api/login", user);
+    return this.http.post("http://localhost:4000/login", user);
   }
 
-  setToken(token: String) {
-    this.cookies.set("token", "token");
+  setToken(token: string) { 
+    this.cookies.set("token", token); 
   }
+
   getToken() {
     return this.cookies.get("token");
   }
 
   getUser() {
-    return this.http.get("https://../api/users/2");
+    return this.http.get("http://localhost:4000/users");
   }
-  getUserLogged() {
+
+  getUserLogged(): Observable<any> { 
     const token = this.getToken();
-    // Aquí iría el endpoint para devolver el usuario para un token
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}` 
+    });
+
+    return this.http.get("http://localhost:4000/users", { headers }); 
   }
 }
