@@ -10,10 +10,7 @@ import { UsersService } from '../../service/users/users.service';
 export class LoginComponent implements OnInit{
   constructor(public userService: UsersService) {}
   ngOnInit() {
-    this.getUserLogged();
+  
   }
-  getUserLogged() {
-    this.userService.getUser().subscribe((user) => {
-      console.log(user);
-    });
-  }}
+  
+  }
