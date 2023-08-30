@@ -1,4 +1,4 @@
-<div id="carouselExampleCaptions" class="carousel slide">
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button *ngFor="let event of eventsData; let i = index" type="button" [attr.data-bs-target]="'#carouselExampleCaptions'" [attr.data-bs-slide-to]="i" [class.active]="i === 0" [attr.aria-label]="'Slide ' + (i + 1)"></button>
   </div>
@@ -6,8 +6,9 @@
     <div *ngFor="let event of eventsData; let i = index" class="carousel-item" [class.active]="i === 0">
       <img [src]="'../assets' + event.imgUrl" class="d-block w-100 carousel-image" [alt]="'Slide ' + (i + 1)">
       <div class="carousel-caption" id="carousel-text">
-        <h2>{{ event.name }}</h2>
-        <p>{{ event.description }}</p>
+        
+        <button id="slidercard" [routerLink]="['/details', event.idevents]" class="btn btn-primary"><h2>{{ 'event' + event.idevents + '.name' | translate }}</h2>
+        </button>
       </div>
     </div>
   </div>

@@ -6,7 +6,37 @@ img{
 }
 
 p{
-    font-size:xx-small;
+    font-size:small;
+}
+
+#datediv {
+    border: 2px solid red;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+}
+
+
+
+#datep {
+    font-size: small;
+    font-weight: bold;
+    color: #61E8A7 ;
+    font-style: oblique;
+    
+    
+}
+
+#insp {
+font-size: small;
+    font-weight: bold;
+    color: #406494;
+    font-style: oblique;
+
+}
+
+h3 {
+    color: #406494;
 }
 
 .btn{
@@ -17,6 +47,7 @@ p{
     font-weight: bold;
     font-size: small;
     background-color: #406494;
+    color: #EDF6A9;
 }
 
 }
