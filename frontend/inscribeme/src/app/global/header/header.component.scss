@@ -1,0 +1,20 @@
+#nav-header {
+   background-color: #61E8A7 ;
+   display: flex;
+   align-items: center;
+   width: 100%;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #EDF6A9;
+}    
+
+#logo {
+    border-radius: 50%;
+    min-width: 100px;
+    min-height: 100px;
+}
+
